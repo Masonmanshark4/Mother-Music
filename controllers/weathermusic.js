@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-//might have to rethink the purpose of this file
-
-
 const axios = require('axios'); // For making HTTP requests
 const SpotifyWebApi = require('spotify-web-api-node');
 
@@ -59,26 +47,23 @@ async function selectPlaylist(weatherCondition) {
     }
   }
   
-  async function generatePlaylist() {
+  async function generatePlaylist(weatherData) {
     try {
-      await authenticateSpotify();
-      const weather = await getWeather();
-      if (weather) {
-        const playlistName = await selectPlaylist(weather);
-        const playlists = await spotifyApi.searchPlaylists(playlistName);
+        await authenticateSpotify();
+        const playlistName = selectPlaylist(weatherData.weather[0].main); // put weather condition in main object
+        const playlists = await spotifyAPI.searchPlaylists(playlistName);
         if (playlists.body.playlists.total > 0) {
-          const playlist = playlists.body.playlists.items[0];
-          console.log('Generated playlist:', playlist.name);
-          console.log('Playlist ID:', playlist.id);
+            const playlist = playlists.body.playlists.items[0];
+            // should display playlist info as needed
+            console.log('Generated playlist:', playlist.name);
+            console.log('Playlist ID:', playlist.id);
         } else {
-          console.log(`No playlist found for "${playlistName}"`);
+            console.log(`No playlist found for "${playlistName}"`);
         }
-      } else {
-        console.log('Failed to fetch weather data. Unable to generate playlist.');
-      }
     } catch (error) {
-      console.error('Error generating playlist:', error);
+        console.error('Error generating playlist:', error);
     }
-  }
+}
   
   generatePlaylist();
+  

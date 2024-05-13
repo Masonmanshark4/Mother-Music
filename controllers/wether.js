@@ -6,10 +6,10 @@ async function getWeatherByCoordinates(latitude, longitude) {
     try {
         const response = await fetch(apiUrl);
         const weatherData = await response.json();
-        return weatherData;
+        callback(weatherData);
     } catch (error) {
         console.error('Error fetching weather data:', error);
-        return null;
+        callback(null);
     }
 }
 
@@ -33,3 +33,19 @@ function getUserLocation() {
         }
     });
 }
+
+async function fetchWeatherAndGeneratePlaylist() {
+    try {
+        const { latitude, longitude } = await getUserLocation();
+        getWeatherByCoordinates(latitude, longitude, async (weather) => {
+            if (weather) {
+                await generatePlaylist(weather);
+                console.log('Generated playlist:', playlist);
+            }
+        });
+    } catch (error) {
+        console.error('Error fetching weather and playlist:', error);
+    }
+}
+
+fetchWeatherAndGeneratePlaylist();

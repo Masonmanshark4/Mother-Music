@@ -3,9 +3,7 @@ const path = require('path');
 const express = require('express');
 const exphbs = ('express-handlebars');
 
-
-// TO DO: Import custom modules
-
+const routes = require('./controllers');
 
 // Creating an Express application
 const app = express();
@@ -23,6 +21,16 @@ app.use(express.urlencoded({ extended: true }));
 
 // Serving static files from 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Route handle for the root URL '/'
+app.get('/', (req, res) => {
+  res.render('main');
+});
+
+// Route handler for the '/secondary' URL
+app.get('/secondary', (req, res) => {
+  res.render('layout/secondary');
+});
 
 // Routing middleware
 app.use(routes);

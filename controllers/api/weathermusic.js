@@ -1,7 +1,7 @@
 const axios = require('axios'); // For making HTTP requests
 const SpotifyWebApi = require('spotify-web-api-node');
 
-const apiKey = 'YOUR_OPENWEATHER_API_KEY';
+const apiKey = '0ac58c472dada37a5002a871e77ddf07';
 const city = 'YOUR_CITY_NAME';
 const spotifyID = 'YOUR_SPOTITFY_ID';
 const spotifySecret = 'YOUR_SPOTIFY_SECRET';

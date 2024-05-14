@@ -1,6 +1,6 @@
 // Function to fetch weather data based on latitude and longitude
 async function getWeatherByCoordinates(latitude, longitude) {
-    const apiKey = 'YOUR_OPENWEATHER_API_KEY';
+    const apiKey = '0ac58c472dada37a5002a871e77ddf07';
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
 
     try {

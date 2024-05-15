@@ -10,14 +10,15 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Setting up Handlebars as the view engine
-const hbs = exphbs.create({});
-
-app.engine('handlebars', hbs.engine);
+app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Using the middleware function
+app.use(myMiddleware);
 
 // Serving static files from 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));

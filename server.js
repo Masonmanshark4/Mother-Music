@@ -1,9 +1,9 @@
 // Importing required modules
 const path = require('path');
 const express = require('express');
-const exphbs = ('express-handlebars');
+const exphbs = require('express-handlebars');
 
-const routes = require('./controllers/api/controller');
+const routes = require('./controllers/api');
 
 // Creating an Express application
 const app = express();

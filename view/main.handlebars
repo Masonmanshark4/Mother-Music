@@ -1,22 +1,41 @@
-
 <!DOCTYPE html>
-<html>
- <head>
-    <meta charset="UTF-8" />
-    <title>Mother Music</title>
-    <link rel="stylesheet" href="/css/jass.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  </head>
+<html lang="en">
 
-  <body>
-    <div class="flex-column justify-space-around">
-      <header class="display-flex justify-space-between align-center p-2">
-        <h1>Mother Music</h1>
-      </header>
-      <main class="container container-fluid mt-5">
-        {{{ body }}}
-      </main>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mother Music</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>
+                <a href="/">home</a>
+            </h1>
+            <nav>
+                {{#if loggedIn}}
+                <a href="/dashboard">dashboard</a>
+                <button id="logout" class="btn-no-style logout">logout</button>
+                {{else}}
+                <a href="/login">login</a>
+                {{/if}}
+            </nav>
+        </header>
+        <div class="site-row">
+            <div class="site-name">
+                <h1>The Tech Blog</h1>
+            </div>
+        </div>
+        <main>
+            {{{ body }}}
+        </main>
     </div>
-  </body>
+
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+</body>
+
 </html>

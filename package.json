@@ -14,12 +14,30 @@
     "dependencies": {
         "bcrypt": "^5.0.0",
         "connect-session-sequelize": "^7.0.4",
+<<<<<<< HEAD
         "dotenv": "^8.6.0",
         "express": "^4.19.2",
         "express-handlebars": "^5.3.5",
         "express-session": "^1.17.1",
         "mysql2": "^2.2.5",
         "sequelize": "^6.3.5",
+=======
+<<<<<<< HEAD
+        "dotenv": "^8.6.0",
+        "express": "^4.19.2",
+        "express-handlebars": "^5.3.5",
+        "express-session": "^1.17.1",
+        "mysql2": "^2.2.5",
+        "sequelize": "^6.3.5",
+=======
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.2.0",
+        "express-session": "^1.17.1",
+        "mysql2": "^3.9.7",
+        "sequelize": "^6.37.3",
+>>>>>>> 9100ca361349eadcca33bb998ee44306d1a17dbf
+>>>>>>> main
         "spotify-web-api-node": "^5.0.2"
     },
     "devDependencies": {

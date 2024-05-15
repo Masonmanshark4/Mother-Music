@@ -1,9 +1,22 @@
 // Importing required modules
 const path = require('path');
 const express = require('express');
+<<<<<<< HEAD
+const exphbs = require('express-handlebars'); // Corrected import
+
+const routes = require('./controllers/api/index.js');
+
+// Define a middleware function
+const myMiddleware = (req, res, next) => {
+  // Middleware logic here
+  console.log('Middleware executed');
+  next(); // Call next to pass control to the next middleware or route handler
+};
+=======
 const exphbs = require('express-handlebars');
 
 const routes = require('./controllers/api');
+>>>>>>> 9100ca361349eadcca33bb998ee44306d1a17dbf
 
 // Creating an Express application
 const app = express();

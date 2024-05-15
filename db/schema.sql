@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS mother-music;
+DROP DATABASE IF EXISTS [mother-music];
 CREATE DATABASE root;
 PASSWORD password;

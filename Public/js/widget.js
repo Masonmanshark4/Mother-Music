@@ -1,32 +1,23 @@
-// function to fetch weather data
-function renderWeather(weatherData) {
-    const weatherWidget = document.getElementById('weather-widget');
-    weatherWidget.innerHTML = `
-        <h2>Weather in ${weatherData.name}</h2>
-        <p>Temperature: ${weatherData.main.temp}°C</p>
-        <p>Weather: ${weatherData.weather[0].description}</p>
-    `;
-}
+// Function to fetch random song from the server
+async function fetchRandomSong() {
+    try {
+      const response = await fetch('/random-song');
+      const data = await response.json();
 
-// function to render playlist information in a widget
-function renderPlaylist(playlistData) {
-    const playlistWidget = document.getElementById('playlist-widget');
-    playlistWidget.innerHTML = `
-        <h2>Playlist: ${playlistData.name}</h2>
-        <p>Playlist ID: ${playlistData.id}</p>
-    `;
-}
-
-// function to display weather and playlist in separate widgets
-async function displayWeatherAndPlaylist() {
-    const { weatherData, playlistData } = await fetchWeatherDataAndGeneratePlaylist();
-    if (weatherData && playlistData) {
-        renderWeather(weatherData);
-        renderPlaylist(playlistData);
-    } else {
-        console.log('Unable to fetch weather data or generate playlist.');
+      // Update widget with song information
+      document.getElementById('song-name').textContent = data.name;
+      document.getElementById('song-artist').textContent = data.artist;
+      document.getElementById('song-album').textContent = data.album;
+      document.getElementById('song-preview').src = data.previewUrl;
+      document.getElementById('song-link').href = data.externalUrl;
+    } catch (error) {
+      console.error('Error fetching random song:', error);
     }
-}
+  }
 
-// Call function to display weather and playlist on widget
-displayWeatherAndPlaylist();
+  // Event listener for the "Generate Random Song" button
+  document.getElementById('generate-btn').addEventListener('click', fetchRandomSong);
+
+  // Fetch a random song when the page loads
+  fetchRandomSong();
+  

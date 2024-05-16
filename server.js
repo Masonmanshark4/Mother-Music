@@ -1,55 +1,50 @@
-// Importing required modules
+// import dependencies
 const path = require('path');
 const express = require('express');
-<<<<<<< HEAD
-const exphbs = require('express-handlebars'); // Corrected import
-
-const routes = require('./controllers/api/index.js');
-
-// Define a middleware function
-const myMiddleware = (req, res, next) => {
-  // Middleware logic here
-  console.log('Middleware executed');
-  next(); // Call next to pass control to the next middleware or route handler
-};
-=======
+const routes = require('./controllers');
+const sequelize = require('./config/connection');
+const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars');
+const hbs = exphbs.create({
+    helpers
+});
 
-const routes = require('./controllers/api');
->>>>>>> 9100ca361349eadcca33bb998ee44306d1a17dbf
+// for storing session data
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// Creating an Express application
+// session configuration
+const sess = {
+    secret: process.env.DB_SECRET,
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize,
+        checkExpirationInterval: 1000 * 60 * 10, // will check every 10 minutes
+        expiration: 1000 * 60 * 30 // will expire after 30 minutes
+    })
+};
+
+// initialize express app
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Setting up Handlebars as the view engine
-app.engine('handlebars', exphbs());
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-// Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Using the middleware function
-app.use(myMiddleware);
-
-// Serving static files from 'public' directory
+// middleware
+app.use(session(sess));
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Route handle for the root URL '/'
-app.get('/', (req, res) => {
-  res.render('main');
-});
-
-// Route handler for the '/secondary' URL
-app.get('/secondary', (req, res) => {
-  res.render('layout/secondary');
-});
-
-// Routing middleware
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}));
 app.use(routes);
 
-// Syncing Sequelize models with the database and starting the server
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+sequelize.sync();
+
+// start server
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}!`);
 });

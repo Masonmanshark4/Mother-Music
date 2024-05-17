@@ -7,6 +7,7 @@ const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({helpers});
 const favicon = require('serve-favicon');
+require('dotenv').config();
 
 // for storing session data
 const session = require('express-session');
@@ -29,22 +30,29 @@ const sess = {
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+app.use(session(sess));
+
+
+//app.engine('handlebars', exphbs({
+//    defaultLayout: 'main',
+//    layoutsDir: path.join(__dirname, './', 'views', 'layouts'),
+//    partialsDir: path.join(__dirname, './', 'views', 'partials')}
+//));
+//app.set('views', path.join(__dirname, '..', 'views'));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // middleware
-app.use(session(sess));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'favicon', 'heroku_logo.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.json());
 app.use(express.urlencoded({
-  extended: true
+    extended: true
 }));
 app.use(routes);
 
-sequelize.sync();
-
-// start server
+sequelize.sync().then(() => {
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}!`);
+  })
 });

@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS mother-music_db;
+DROP DATABASE IF EXISTS mother_music;
 
-CREATE DATABASE mother-music_db;
+CREATE DATABASE mother_music;

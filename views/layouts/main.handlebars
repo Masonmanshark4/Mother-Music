@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>Mother Music</title>
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
@@ -11,9 +12,9 @@
 <body>
     <div class="wrapper">
         <header>
-            <h1>
-                <a href="/">home</a>
-            </h1>
+            <a href="/" class="text-gray-500 hover:text-gray-700">
+                    <h1 class="text-4xl font-bold">HOME</h1>
+                  </a>
             <nav>
                 {{#if loggedIn}}
                 <a href="/dashboard">dashboard</a>
@@ -25,7 +26,7 @@
         </header>
         <div class="site-row">
             <div class="site-name">
-                <h1>The Tech Blog</h1>
+                <h1 class="text-4xl font-bold text-gray-800">Mother Music</h1>
             </div>
         </div>
         <main>

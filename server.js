@@ -35,10 +35,10 @@ app.set('view engine', 'handlebars');
 // middleware
 app.use(session(sess));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon', 'heroku_logo.ico')));
 app.use(express.json());
 app.use(express.urlencoded({
-    extended: true
+  extended: true
 }));
 app.use(routes);
 

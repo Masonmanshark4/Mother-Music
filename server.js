@@ -5,9 +5,8 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({
-    helpers
-});
+const hbs = exphbs.create({helpers});
+const favicon = require('serve-favicon');
 
 // for storing session data
 const session = require('express-session');
@@ -36,6 +35,7 @@ app.set('view engine', 'handlebars');
 // middleware
 app.use(session(sess));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true

@@ -6,7 +6,7 @@ const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({helpers});
-const favicon = require('serve-favicon');
+//const favicon = require('serve-favicon');
 require('dotenv').config();
 
 // for storing session data
@@ -44,7 +44,7 @@ app.set('view engine', 'handlebars');
 
 // middleware
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true

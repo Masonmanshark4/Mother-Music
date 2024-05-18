@@ -1,33 +1,39 @@
 {
     "name": "mother-music",
     "version": "1.0.0",
-    "description": "",
+    "description": "A simple interactive full-stack application",
     "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js",
-        "seed": "node seeds/seed.js"
+      "start": "node server.js",
+      "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm install && npm run build"
+    },
+    "dependencies": {
+      "bcrypt": "^5.0.1",
+      "connect-session-sequelize": "^7.1.2",
+      "dotenv": "^10.0.0",
+      "express": "^4.17.1",
+      "express-handlebars": "^5.3.4",
+      "express-session": "^1.17.2",
+      "mysql2": "^2.2.5",
+      "sequelize": "^6.6.5",
+      "spotify-web-api-node": "^5.0.2"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.12"
+    },
+    "engines": {
+      "node": "14.x"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Masonmanshark4/Mother-Music.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "dependencies": {
-        "bcrypt": "^5.0.0",
-        "connect-session-sequelize": "^7.0.4",
-        "dotenv": "^8.6.0",
-        "express": "^4.19.2",
-        "express-favicon": "^2.0.4",
-        "express-handlebars": "^5.3.5",
-        "express-session": "^1.17.1",
-        "mysql2": "^3.9.7",
-        "sequelize": "^6.3.5",
-        "serve-favicon": "^2.5.0",
-
-        "spotify-web-api-node": "^5.0.2"
+    "bugs": {
+      "url": "https://github.com/Masonmanshark4/Mother-Music/issues"
     },
-    "devDependencies": {
-        "eslint": "^7.12.1",
-        "eslint-config-prettier": "^6.15.0",
-        "prettier": "^2.1.2"
-    }
-}
+    "homepage": "https://github.com/Masonmanshark4/Mother-Music#readme"
+  }
+  

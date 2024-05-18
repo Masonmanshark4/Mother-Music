@@ -2,7 +2,6 @@
     <button type="submit" class="btn bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" id="create-new-post">+Create new post</button>
 </section>
 
-
 {{#if posts.length}}
 <section>
     <h2 class="text-4xl font-bold text-gray-800">Your Dashboard</h2>
@@ -17,4 +16,20 @@
 </section>
 {{/if}}
 
-<script src="/javascript/create-post.js"></script>
+<section class="random-song-section">
+    <h2 class="text-2xl font-bold text-gray-800">Random Song Generator</h2>
+    <div class="song-info">
+        <p><strong>Song Name:</strong> <span id="song-name">Loading...</span></p>
+        <p><strong>Artist:</strong> <span id="song-artist">Loading...</span></p>
+        <p><strong>Album:</strong> <span id="song-album">Loading...</span></p>
+        <audio id="song-preview" controls>
+            <source src="" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <p><a id="song-link" href="#" target="_blank">Listen on Spotify</a></p>
+    </div>
+    <button class="btn bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" id="generate-btn">Generate Random Song</button>
+</section>
+
+<script src="js/create-post.js"></script>
+<script src="js/widget.js"></script>

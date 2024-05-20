@@ -1,6 +1,6 @@
 # Mother-Music
 
-You feeling some kind of way? Happy, sad, bored, zoomies well Mother has got the music for you! This is a simple playlist generator using your location where you can leave comments on songs.
+Feeling some kind of way? Whether you are happy, sad, bored, or somewhere in between, Mother-Music has the perfect playlist for you. This is a simple playlist generator integrates your Spotify account, and allows you to leave your feedback on playlists and interact with other listeners, creating a community of music enthusiasts. 
 
 ## Table of Contents
 
@@ -18,53 +18,85 @@ You feeling some kind of way? Happy, sad, bored, zoomies well Mother has got the
 
 ## Description
 
-This is a simple music playlist generator using the the spotify node module and openweather API. The spotify node is able to connect to spotify services to pull music. Meanwhile the openweather API inputs the users latitude and longitude to determine the current weather and parse the data to the spotify node. Users can log in to their spotify accounts and save any of the used playlists to their personal library and remember their location.
+Mother-Music as a playlist generator that integrates the Spotify API and OpenWeather API. By using the Spotify API, the app connect to Spotify services to pull music, while OpenWeather API users the user's latitude and longitute to determine the current weather, and provide contextual music recommendations. Users can log in using their Spotify accoutns to save playlists to a personal library, and remember their location. 
 
 ## Introduction
 
-This is a project made with the accummulative efforts of Mason Carr, Kailee Segarra, and Stephanie Zolton. Following the end of week 14 of our bootcamp we have come to a crossroad of having to work both back end and front end development of a web page. The project is a real-world full-stack application meant to utilize node modules
+This is the collaborative effort of Mason Carr, Kailee Segarra, and Stephanie Zolton, developed as part of our bootcamp. Mother-Music represents a full-stack application that leverages both front-end and back-end developement including Handlebars, Node.js, Express.js, and Sequelize.
 
 ## Process
 
-We began by making a project proposal, where we began by brainstorming some ideas such as these:
+Intial brainstorming: 
 - Music library database w/o copyrights
-- Event tracker for concerts/sports/comedy/etc
-- App for song recs daily personalized for you (ie: daylist). Like color based on your mood or picking a list of emotions for the mood you’re in
-- Something based on weather and music playlists
-- Event tracker for weather tracker for concerts/outdoor events 
+- Event tracker for concerts/sports/comedy
+- Daily personalized song recommendations based on mood
+- Music playlists based on weather
+- Weather tracker for conters/outdoor events
 
-We eventually settled on this direction, after some discussion:
+Final Proposal:
 
 Title: Mother Music
 
-Proposal description: To design an application that gives you personalized recommended playlists based on the weather. We did ultimately have some issues getting this workflow going, so we decided to make a playlist generator where you can leave comments.
+Proposal description: An application that provides personalized playlist recommendations based on weather. However, we adjusted our focus on creating a playlist generator where users can listen to music, leave comments, and interact with other users.
 
-User story: As a user, I want to be able to have an app that automatically generates music and you can drop comments on a randomized playlist.
+User story: 
+AS A Spotify user, 
+I WANT an app that allows me to interact with my favorite music through curated playlists 
+SO THAT I can connect with others who share  a similar taste in music.
 
-Here are some API's we explored initially: https://rapidapi.com/s.mahmoud97/api/concerts-artists-events-tracker/, https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples, https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API, https://rapidapi.com/Paxsenix0/api/youtube-music-api3/, https://rapidapi.com/category/Music, https://rapidapi.com/sonoteller1-sonoteller-default/api/sonoteller-ai1/, https://leemartin.dev/turning-weather-into-music-with-dark-sky-and-spotify-for-tycho-f4f40aef97ed 
+Initial APIs explored:
+https://rapidapi.com/s.mahmoud97/api/concerts-artists-events-tracker/ 
+https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples 
+https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
+https://rapidapi.com/Paxsenix0/api/youtube-music-api3/
+https://rapidapi.com/category/Music
+https://rapidapi.com/sonoteller1-sonoteller-default/api/sonoteller-ai1/
+https://leemartin.dev/turning-weather-into-music-with-dark-sky-and-spotify-for-tycho-f4f40aef97ed 
 
-Wishlist goals:
-- Find records to support your favorite artist: https://rapidapi.com/mail.munteanu/api/yourvinylstore/ 
-- I also want to be notified for local artists coming to my area and create an entire unified platform
+Future Development:
+- Support for finding records and vinyls of your favorite artists: https://rapidapi.com/mail.munteanu/api/yourvinylstore/ 
+- Notifcations for local artist events
+- Enhanced user profiles that allow for customization
+- Develop a mobile verison of the application
+
 
 Our initial wireframe:
-![wireframe](./public/css/images/wireframe.png)
+![wireframe](./Public/css/images/wireframe.png)
 
-For our sources, we used materials from class such as former class challenges, mini-projects, rewatched classes, collaborated with our teachers, and pulled from other youtube videos like this: https://www.youtube.com/watch?v=wSNa5b1mS5Y.
+Sources and Learning Materials:
+- Class challenges, mini-projects
+- Rewatched live class session
+- Collaboration with teachers, TAs, tutors
+- YouTube resources: https://www.youtube.com/watch?v=wSNa5b1mS5Y.
 
-Some issues that we ran in to were that one of our group members had to drop the class, so we had to take on a lot of last-minute work. Getting something deployed to heroku was also a huge road block for us. 
+Challenges: 
+- Started with 4 developers, but lost a developer, requiring redistribution of workload
+- Deployment issues with Heroku
+- Time constraints
+- favicon ico
 
 ## Features
 
-Some cool features are that our project uses an HBS template for front end, and Node and Express back end. This allows you to interact with other users and comment on songs/artists and generate a more accurate randomized playlist.
+- Uses Handlebars (HBS) template for front-end, and Node.js and Express.js for back-end. 
+- Allows user interaction via comments on playlists, songs, artists
+- Generates personalized playlists
+- Integrates Spotify API
+
+## Usage
+
+Log in with your Spotify account to create personalized playlists, leave comments, and connect with other music enthusiasts. 
 
 ## Installation
 
-For installation, we used node, mySQL/schema, sequelize, heroku, and a spotify API.
+1. Clone the repository
+2. Install dependencies: npm install
+3. Set up the database: MySQL/Sequelize schema
+4. Configure environment variables for Spotify API and OpenWeather API
+5. Deploy using Heroku
 
 ## Credits
 
-Credit to our teacher and assistant teacher, Mr. Ragheed and Mr. Torres, for giving us the necessary guidance to understand the coding languages. Along with Ohio State University for creating the Coding Bootcmap.
+Special thanks to our teacher, Mr. Ragheed, and assistant teacher, Mr. Ragheed and Mr. Torres, for giving us the necessary guidance to understand the coding languages. Thank you to Ohio State University for creating the Coding Bootcamp.
 
 ## Licenses
 

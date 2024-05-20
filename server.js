@@ -32,7 +32,6 @@ const PORT = process.env.PORT || 3001;
 
 app.use(session(sess));
 
-
 //app.engine('handlebars', exphbs({
 //    defaultLayout: 'main',
 //    layoutsDir: path.join(__dirname, './', 'views', 'layouts'),

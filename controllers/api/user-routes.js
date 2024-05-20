@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const bcrypt = require('bcryptjs');
 const {
     User,
     Post,
@@ -123,6 +124,26 @@ router.post('/login', (req, res) => {
                 });
             });
         });
+});
+
+router.post('/signup', async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        const user = await User.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: hashedPassword,
+        });
+
+        req.session.save(() => {
+            req.session.user_id = user.id;
+            req.session.loggedIn = true;
+            res.json({ user, message: 'You are now signed up!' });
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 router.post('/logout', (req, res) => {

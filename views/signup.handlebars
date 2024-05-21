@@ -1,26 +1,137 @@
-{{!-- sign in page --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        /* Reset default margin and padding */
+        body, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the navigation bar */
+        nav {
+            background-color: #273F59;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Style the navigation links */
+        .nav-links {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        .nav-links li a:hover {
+            background-color: #EBDFC7;
+        }
+
+        /* Flex container for input groups */
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px; /* Add some space between input groups */
+        }
+
+        /* Style for labels */
+        .user-texts {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #273F59;
+            padding: 8px;
+            margin-right: 10px; /* Add space between label and input */
+            flex: 0 0 150px; /* Set fixed width for labels */
+        }
+
+        /* Style for text input boxes */
+        .user-texts[type="text"],
+        .user-texts[type="password"] {
+            flex: 1; /* Grow to fill available space */
+            padding: 8px;
+            border: 1px solid #EBDFC7;
+            border-radius: 5px;
+            width: 50%; /* Set a fixed width for the input boxes */
+        }
+
+        /* Style for the submit button */
+        .login-signup-btn {
+            background-color: #273F59;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Change the background color of the submit button on hover */
+        .login-signup-btn:hover {
+            background-color: #EBDFC7;
+        }
+
+        /* Style the form sections */
+        .form-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        } 
+
+        /* Flex container for signup/login links */
+        .signup-login-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+
 <section class="sign-in-page">
     <div class="form-heading">
-        <h1 class="text-4xl font-bold text-gray-800">SIGN UP</h1>
-        </div>
+        <h1 class="h1-text">Sign Up</h1>
+        <style>
+            .h1-text {
+                font-family: Arial, Helvetica, sans-serif;
+                color: #273F59;
+                padding-left: 20px;
+            }
+        </style>
+    </div>
     <div class="form-section">
         <form class="signup-form">
-            <div>
-                <label for="username-signup" class="block text-gray-700 text-sm font-bold mb-2">Select a Username</label>
-                <input type="text" class="entry-field border border-gray-300 rounded py-2 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="username-signup" />
+            <div class="input-group">
+                <label for="username-signup" class="user-texts">Select a Username:</label>
+                <input type="text" class="user-texts" id="username-signup" />
+            </div>
+            <div class="input-group">
+                <label for="password-signup" class="user-texts">Select a password:</label>
+                <input type="password" class="user-texts" id="password-signup" />
             </div>
             <div>
-                <label for="password-signup" class="block text-gray-700 text-sm font-bold mb-2">Select a password</label>
-                <input type="password" class="entry-field border border-gray-300 rounded py-2 px-4 text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="password-signup" />
-            </div>
-            <div>
-              
-                <button type="submit" class="login-signup-btn bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Sign Up!</button>
+                <button type="submit" class="login-signup-btn">Sign Up!</button>
             </div>
         </form>
+        <div class="signup-login-links">
+            <a href="/login" class="user-texts">Login Instead</a>
+        </div>
     </div>
-
-     <a href="/login" class="text-gray-500 hover:text-blue-700">Login Instead</a>
 </section>
 
-<script src="/Public/js/signup.js"></script>
+</body>
+</html>

@@ -4,29 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mother Music</title>
+    <title><h1>Mother Music</title></h1>
     <link rel="stylesheet" href="Public/css/stylesheet.css">
+    <style>
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #273F59;
+
+        }
+    </style>
 
 </head>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#login">Login</a></li>
+        </ul>
+        <style>
+            .nav-links {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        </style>
+    </nav>
 
 <body>
+
+    
     <div class="wrapper">
         <header>
-            <h1>
-                <a href="/">home</a>
-            </h1>
+         
             <nav>
                 {{#if loggedIn}}
                 <a href="/dashboard">dashboard</a>
                 <button id="logout" class="btn-no-style logout">logout</button>
                 {{else}}
-                <a href="/login">login</a>
+                {{!-- <a href="/login"><h3 class="login">login</a></h3> --}}
                 {{/if}}
+                <style>
+                    .login {
+                        font-family: Arial, Helvetica, sans-serif;
+                    }
+
+
+                </style>
             </nav>
         </header>
         <div class="site-row">
             <div class="site-name">
-                <h1>Mother Music</h1>
+                <h1 class="h1-text">Mother Music</h1>
             </div>
         </div>
         <main>

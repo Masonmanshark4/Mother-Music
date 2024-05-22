@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const songController = require('./controllers/api/musicgen');
+const musicgen = require('./controllers/api/spotify.js');
 
-router.use('/songs', musicgen);
+router.use('/songs', spotify);
 
 module.exports = router;

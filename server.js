@@ -1,13 +1,16 @@
 // import dependencies
 const path = require('path');
 const express = require('express');
+const mongoose = require('mongoose');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({helpers});
+
 //const favicon = require('serve-favicon');
 require('dotenv').config();
+const bycrypt = require('bcrypt');
 
 // for storing session data
 const session = require('express-session');
@@ -49,6 +52,11 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
 app.use(routes);
 
 sequelize.sync().then(() => {
@@ -56,3 +64,5 @@ app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}!`);
   })
 });
+
+module.exports = app;
